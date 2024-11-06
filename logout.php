@@ -1,0 +1,11 @@
+<?php 
+session_start();
+session_destroy();
+unset(
+    $_SESSION['gbusername'],
+    $_SESSION['gbtoken'],
+    $_SESSION['gbrole'],
+);
+//print_r($_SESSION);
+header('location:login.php');
+?>

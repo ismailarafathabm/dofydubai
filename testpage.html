@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus and Select Rows by Arrow Key</title>
+  <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+  <table tabindex="0" ng-keydown="handleKeyDown($event)">
+    <tr ng-repeat="item in items" ng-keydown="select($event,item)" ng-class="{'selected': $index === selectedIndex}" 
+        ng-focus="focusRow($index)" tabindex="0">
+      <td>{{ item }}</td>
+    </tr>
+  </table>
+
+  <script>
+    angular.module('app', [])
+      .controller('MainCtrl', function($scope) {
+        $scope.items = ["Row 1", "Row 2", "Row 3", "Row 4", "Row 5"];
+        $scope.selectedIndex = 0;
+        $scope.select = ($event,a) => {
+          if($event.which === 13){
+            console.log(a)
+          }
+        }
+        // Function to handle keydown events
+        $scope.handleKeyDown = function(event) {
+          if (event.key === "ArrowDown") {
+            $scope.selectedIndex = ($scope.selectedIndex + 1) % $scope.items.length;
+            event.preventDefault();  // Prevent default scrolling behavior
+          } else if (event.key === "ArrowUp") {
+            $scope.selectedIndex = ($scope.selectedIndex - 1 + $scope.items.length) % $scope.items.length;
+            event.preventDefault();
+          }
+          // Manually trigger the digest cycle to update the view
+          $scope.$apply();
+        };
+
+        // Function to set focus to the selected row
+        $scope.focusRow = function(index) {
+          if ($scope.selectedIndex === index) {
+            let rows = document.querySelectorAll("tr");
+            rows[index].focus();
+          }
+        };
+      });
+  </script>
+
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    tr {
+      cursor: pointer;
+      padding: 10px;
+    }
+    tr.selected {
+      background-color: #d3d3d3;
+    }
+    td {
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+  </style>
+</body>
+</html>

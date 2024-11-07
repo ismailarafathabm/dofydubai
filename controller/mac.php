@@ -135,9 +135,26 @@ class mac
             "delete" => true,
             "barcodeprint" => true
         );
-
+        $shops = array(
+            "fullmenu" => true,
+            "view" => true,
+            "new" => true,
+            "edit" => true,
+            "priceaccess" => true,
+            "delete" => true
+        );
+        $vendors = array(
+            "fullmenu" => true,
+            "view" => true,
+            "priceaccess" => true,
+            "new" => true,
+            "edit" => true,
+            "delete" => true
+        );
         $xaccess = array(
             "dashboard" => $dashboard_access,
+            "shops" => $shops,
+            "vendors" => $vendors,
             "devicesettings" => $devicesettings,
             "stockentrys" => $stockentrys,
             "imeis" => $imeis 

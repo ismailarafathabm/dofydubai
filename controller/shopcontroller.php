@@ -83,7 +83,7 @@
         }
 
         private function _updateshop(array $Ishop):bool{
-            $this->sql = "UPDATE shops set shopName = :shopName,shopLocation = :shopLocation,shopCurrencyType = :shopCurrencyType where shopCode = :shopCode";
+            $this->sql = "UPDATE shops set shopName = :shopName,shopLocation = :shopLocation,shopCurrencyType = :shopCurrencyType where shopCode = :shopCode limit 1";
             $this->cm = $this->cn->prepare($this->sql);
             $isUpdated = $this->cm->execute($Ishop);
             unset($this->sql,$this->cm,$rows);

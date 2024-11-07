@@ -1,5 +1,6 @@
 <?php 
     include_once 'mac.php';
+
     class ShopController extends mac{
         private object $cn;
         private object $cm;

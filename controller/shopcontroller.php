@@ -35,8 +35,8 @@
             return $shops;
         }
 
-        public function GetAllShops($priceaccess){
-            $shops = (array)$this->_getallshops();
+        public function GetAllShops(bool $priceaccess){
+            $shops = (array)$this->_getallshops($priceaccess);
             return $this->res(true,"ok",$shops,200);
             
         }
@@ -66,7 +66,7 @@
             return $isSaved;
         }
 
-        public function SaveAction(array $Ishop):string{
+        public function SaveAction(array $Ishop,bool $priceaccess):string{
             $shopcode = strtolower($Ishop[':shopCode']);
             $cnt = $this->_checkshops($shopcode);
             if($cnt !== 0){
@@ -78,7 +78,7 @@
             if(!$isSaved){
                 return $this->res(false,"Error on Saving Data",[],500);
             }
-            $shops = (array)$this->_getallshops();
+            $shops = (array)$this->_getallshops($priceaccess);
             return $this->res(true,"ok",$shops,200);
         }
 
@@ -90,13 +90,13 @@
             return $isUpdated;
         }
 
-        public function UpdateAction(array $Ishop):string{
+        public function UpdateAction(array $Ishop,bool $priceaccess):string{
             
             (bool)$isUpdated = $this->_updateshop($Ishop);
             if(!$isUpdated){
                 return $this->res(false,"Error on Update",[],500);
             }
-            (array)$shops = $this->_getallshops();
+            (array)$shops = $this->_getallshops($priceaccess);
             return $this->res(true,"ok",$shops,200);
         }
 
@@ -120,7 +120,7 @@
             return $isDelete;
         }
 
-        public function DeleteShopAction(string $shopcode):string{
+        public function DeleteShopAction(string $shopcode,bool $priceaccess):string{
             //check before delete
             (int)$cnt = $this->_deletecheck($shopcode);
             if($cnt !== 0){
@@ -130,7 +130,7 @@
             if(!$isDelete){
                 return $this->res(false,"Error on Deleting Shop",[],500);
             }
-            (array)$shops = $this->_getallshops();
+            (array)$shops = $this->_getallshops($priceaccess);
             return $this->res(true,"ok",$shops,200);
         }
     }

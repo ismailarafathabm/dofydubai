@@ -39,6 +39,7 @@ if(!$haveAccessNewStockEntry){
     ":productProcessor" => $productProcessor,
     ":productCharger" => $productCharger,
     ":productKit" => $productKit,
+    ":productWarranty" => $productWarranty,
     ":cBy" => $userId,
     ":eBy" => $userId,
     ":devicePrice" => $devicePrice,
@@ -63,7 +64,8 @@ if(!$haveAccessNewStockEntry){
     ":imeiStockInDate" => date_format(date_create($stockDate),'Y-m-d'),
     ":imeiShopCode" => $shopCode,
     ":cBy" => $userId,
-    ":eBy" => $userId
+    ":eBy" => $userId,
+    ":imeiWarranty" => $productWarranty
 );
 
 (array)$Imeiupdate = array(
@@ -82,6 +84,7 @@ if(!$haveAccessNewStockEntry){
     ":imeiStockInDate" => date_format(date_create($stockDate),'Y-m-d'),
     ":imeiShopCode" => $shopCode,
     ":eBy" => $userId,
+    ":imeiWarranty" => $productWarranty,
     ":imeiNo" => $productImei,
 );
 

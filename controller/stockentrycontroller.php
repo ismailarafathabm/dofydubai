@@ -160,7 +160,8 @@
             :cBy,
             :eBy,
             now(),
-            now
+            now,
+            :imeiWarranty
         )";
         $this->cm = $this->cn->prepare($this->sql);
         $isSavedImei = $this->cm->execute($Iimeis);
@@ -187,7 +188,8 @@
         imeisoldInvoiceNo = '',
         imeiShopCode = :imeiShopCode,
         eBy = :eBy,
-        eDate = now() 
+        eDate = now(),
+        imeiWarranty = :imeiWarranty 
         where 
         imeiNo = :imeiNo";
         $this->cm = $this->cn->prepare($this->sql);

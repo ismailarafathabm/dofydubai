@@ -1,6 +1,11 @@
 import API_Services from "../../../src/apiservices.js";
 import * as models from './../models/userlistmodel.js';
 export default function userListController($scope, $compile) {
+    if (gbusername !== 'superadmin') {
+        alert("You Do not have access");
+        location.href = `${url}/index.php`;
+        return;
+    }
     menuactive("user_menu");
     $scope.useraccess = {};
     const apis = new API_Services();

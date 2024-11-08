@@ -14,7 +14,7 @@
     }
     $shopName = !isset($shopName) || trim($shopName) === "" ? trim(strtolower($shopCode)) : trim($shopName);
    
-    $shopLocation = !isset($shopName) || trim($shopName) === "" ? "" : trim($shopName);
+    $shopLocation = !isset($shopLocation) || trim($shopLocation) === "" ? "" : trim($shopLocation);
     $shopCurrencyType = !isset($shopCurrencyType) || trim($shopCurrencyType) === "" ? "inr" : trim($shopCurrencyType);
     //validation part
     

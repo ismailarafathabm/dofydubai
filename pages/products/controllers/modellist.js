@@ -22,7 +22,7 @@ export default function ModelListController($scope) {
     const gridDiv = document.querySelector('#myGrid');
     new agGrid.Grid(gridDiv, gridOptions);
     gridOptions.api.setRowData([]);
-
+   
     getallmodels();
     async function getallmodels() {
         if ($scope.isLoading) return;
@@ -62,7 +62,7 @@ export default function ModelListController($scope) {
         $scope.isLoading = true;
         const res = await apis.GET(`products/delete.php?id=${id}`);
         if (!res.isSuccess) {
-            alert(res.data);
+            alert(res.msg);
             $scope.isLoading = false;
             $scope.$apply();
             return;

@@ -118,7 +118,7 @@ $xaccess = $ucc->UserAccess($sessionuser);
         const api = "<?php echo $url ?>/api/";
         const m = "<?php echo $deployment ?>";
         const useraccess = <?php echo json_encode($xaccess) ?>;
-        m === "0" ? console.log(useraccess?.homepagesummary ?? false) : "";
+        m === "0" ? console.log(useraccess) : "";
         const gbusername = "<?php echo $sessionuser ?>";
         const gbtoken = "<?php echo $sessiontoken ?>";
         const app = angular.module('gbuddy', ['ngRoute', 'ngHijriGregorianDatepicker', 'toastr']);
@@ -128,7 +128,7 @@ $xaccess = $ucc->UserAccess($sessionuser);
 
 
         function menuactive(currentmenu, submenu = "") {
-            const _rm = ['dashboard_menu', 'product_menu', 'user_menu', 'changepassword_menu'];
+            const _rm = ['dashboard_menu', 'product_menu', 'user_menu', 'changepassword_menu',"shop_menu"];
             const _sub = ['model_submenu','condition_submenu','kitstatus_submenu','warranty_submenu','chargertype_submenu']
             _rm.map(i => {
                 //m === '0' ? console.log(i) : "";
@@ -164,6 +164,7 @@ $xaccess = $ucc->UserAccess($sessionuser);
     <script type="module" src="./pages/kitsatus/index.js"></script>
     <script type="module" src="./pages/warranty/index.js"></script>
     <script type="module" src="./pages/chargertypes/index.js"></script>
+    <script type="module" src="./pages/shops/index.js"></script>
     <!-- initialize controllers -->
 
     <script src="assets/js/feather.min.js"></script>

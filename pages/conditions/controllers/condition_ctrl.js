@@ -142,7 +142,7 @@ export default function ConditionController($scope) {
     $scope.conditionmodel_closemodel = ($event) => {
         var target = $($event.target);
         if (!target.closest('.modal-dialog').length && !target.closest('[data-toggle="modal"]').length) {
-            console.log("called");
+            
             conditiondiashowhidefun("none");
         }
     } 
@@ -155,7 +155,7 @@ export default function ConditionController($scope) {
         $scope.isLoading = true;
         const res = await apis.GET(`deviceconditions/delete.php?id=${id}`);
         if (!res.isSuccess) {
-            alert(res.data);
+            alert(res.msg);
             $scope.isLoading = false;
             $scope.$apply();
             return;

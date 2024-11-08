@@ -33,9 +33,15 @@ app.config(function($routeProvider)  {
             templateUrl: "./pages/chargertypes/components/charger-list.php",
             controller : "charger_ctrl"
         })
+        //shops 
+        .when('/shop-list', {
+            templateUrl: "./pages/shops/components/shops-list.php",
+            controller : "shoplist_ctrl"
+        })
         //stock entry
         .when('/stockentry-new', {
             templateUrl : "./pages/stockentry/components/stockentry-new.php"
         })
+
         .otherwise({ redirectTo: '/' })
 });

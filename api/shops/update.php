@@ -8,14 +8,14 @@
     extract($_POST);
     //validation parts
     extract($_GET);
-    $shopCode = !isset($shopCode) || trim($shopCode) === "" ? "" : trim($shopCode);
-    if($shopCode === ""){
+    $shop = !isset($shop) || trim($shop) === "" ? "" : trim($shop);
+    if($shop === ""){
         echo res(false,"Enter Shop Code",[],409);
         exit;
     }
     $shopName = !isset($shopName) || trim($shopName) === "" ? trim(strtolower($shopCode)) : trim($shopName);
    
-    $shopLocation = !isset($shopName) || trim($shopName) === "" ? "" : trim($shopName);
+    $shopLocation = !isset($shopLocation) || trim($shopLocation) === "" ? "" : trim($shopLocation);
     $shopCurrencyType = !isset($shopCurrencyType) || trim($shopCurrencyType) === "" ? "inr" : trim($shopCurrencyType);
     //validation part
     
@@ -41,7 +41,7 @@
         ":shopName" => $shopName,
         ":shopLocation" => $shopLocation,
         ":shopCurrencyType" => $shopCurrencyType,
-        ":shopCode" => strtolower($shopCode),
+        ":shopCode" => strtolower($shop),
     );
     echo $prcc->UpdateAction($Ishop,$havPermission);
     exit;

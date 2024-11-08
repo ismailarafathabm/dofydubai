@@ -12,7 +12,7 @@ export const chargerModelGrid = () => {
         xc.push({
             headerName: "Edit",
             field: "_edit",
-            cellRenderer: (p) => `<img  src="${url}/assets/img/icons/edit.svg"/>`,
+            cellRenderer: (p) =>  (+p.data._id) === 1 ? "" : `<img  src="${url}/assets/img/icons/edit.svg"/>`,
             width: 50
         });
     }
@@ -20,7 +20,7 @@ export const chargerModelGrid = () => {
         xc.push({
             headerName: "Delete",
             field: "_delete",
-            cellRenderer: (p) => `<img  src="${url}/assets/img/icons/delete-2.svg"/>`,
+            cellRenderer: (p) =>   (+p.data._id) === 1 ? "" : `<img  src="${url}/assets/img/icons/delete-2.svg"/>`,
             width: 50
         });
     }

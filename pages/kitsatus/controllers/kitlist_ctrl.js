@@ -157,7 +157,7 @@ export default function KitStatusController($scope) {
     $scope.kitstatusdia_closemodal = ($event) => {
         var target = $($event.target);
         if (!target.closest('.modal-dialog').length && !target.closest('[data-toggle="modal"]').length) {
-            console.log("called");
+            //console.log("called");
             kitdiamodalshowhidefun("none");
         }
     }
@@ -171,7 +171,7 @@ export default function KitStatusController($scope) {
         $scope.isLoading = true;
         const res = await apis.GET(`devicekits/delete.php?id=${id}`);
         if (!res.isSuccess) {
-            alert(res.data);
+            alert(res.msg);
             $scope.isLoading = false;
             $scope.$apply();
             return;

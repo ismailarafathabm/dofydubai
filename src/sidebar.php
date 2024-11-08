@@ -85,7 +85,7 @@
                 <?php
                 }
                 $haveAccessMenuStockentry = !isset($xaccess['stockentrys']['fullmenu']) ? false : $xaccess['stockentrys']['fullmenu'];
-                
+
                 if ($haveAccessMenuStockentry) {
                 ?>
                     <li class="submenu">
@@ -119,12 +119,22 @@
 
 
                 <?php
-                
+
                 if ($sessionuser === "superadmin") {
                 ?>
                     <li id="user_menu">
                         <a href="#!users-list"><img src="assets/img/icons/users1.svg" alt="img" /><span>
                                 Users</span>
+                        </a>
+                    </li>
+                <?php
+                }
+                $haveAccessMenuShopsView = !isset($xaccess['shops']['fullmenu']) ? false : $xaccess['shops']['fullmenu'];
+                if ($haveAccessMenuShopsView) {
+                ?>
+                    <li id="shop_menu">
+                        <a href="#!shop-list"><img src="assets/img/icons/places.svg" alt="img" /><span>
+                                Shops</span>
                         </a>
                     </li>
                 <?php

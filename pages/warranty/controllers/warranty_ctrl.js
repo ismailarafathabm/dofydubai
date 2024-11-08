@@ -171,7 +171,7 @@ export default function WarrantyController($scope) {
     $scope.warrantydia_closemodel = ($event) => {
         var target = $($event.target);
         if (!target.closest('.modal-dialog').length && !target.closest('[data-toggle="modal"]').length) {
-            console.log("called");
+            ///console.log("called");
             warrantydiashowhidefun("none");
         }
     }
